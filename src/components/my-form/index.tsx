@@ -1,8 +1,8 @@
 import React from 'react'
 import InputErrorRenderer from '../form-errors'
-import {LockClosedIcon} from '@heroicons/react/solid'
+import { LockClosedIcon } from '@heroicons/react/solid'
 import logo from '../../logo.svg'
-import {toEnglishDigit} from '../../utils/general-utils'
+import { toEnglishDigit } from '../../utils/general-utils'
 
 type MyState = {
     email: string
@@ -45,7 +45,7 @@ class MyForm extends React.Component<any, MyState> {
     handleUserInput = (e: { target: { name: any; value: any } }) => {
         const name = e.target.name
         const value = toEnglishDigit(e.target.value)
-        this.setState({...this.state, [name]: value}, () => {
+        this.setState({ ...this.state, [name]: value }, () => {
             this.validateField(name, value)
         })
     }
@@ -233,12 +233,14 @@ class MyForm extends React.Component<any, MyState> {
                                     disabled={!this.state.formValid}
                                     className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                 >
-                                    <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                                        <LockClosedIcon
-                                            className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
-                                            aria-hidden="true"
-                                        />
-                                    </span>
+                                    {!this.state.formValid && (
+                                        <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                                            <LockClosedIcon
+                                                className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400"
+                                                aria-hidden="true"
+                                            />
+                                        </span>
+                                    )}
                                     Sign in
                                 </button>
                             </div>
