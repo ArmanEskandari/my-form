@@ -69,6 +69,7 @@ class MyForm extends React.Component<any, MyState> {
                     ? ''
                     : ' enter a valid gmail address'
                 break
+
             case 'password':
                 let lengthIsValid = value.length > 6
                 fieldValidationErrors.password.length = lengthIsValid
@@ -111,6 +112,7 @@ class MyForm extends React.Component<any, MyState> {
                     false
 
                 break
+
             default:
                 break
         }
@@ -128,6 +130,20 @@ class MyForm extends React.Component<any, MyState> {
         this.setState({
             formValid: this.state.emailValid && this.state.passwordValid,
         })
+    }
+
+    showPassword() {
+        var x: HTMLInputElement = document.getElementById(
+            'password'
+        ) as HTMLInputElement
+
+        if (x) {
+            if (x.type === 'password') {
+                x.type = 'text'
+            } else {
+                x.type = 'password'
+            }
+        }
     }
 
     errorClass(error: string | any[]) {
@@ -153,7 +169,10 @@ class MyForm extends React.Component<any, MyState> {
                             className="mt-8 space-y-6"
                             onSubmit={(e) => {
                                 e.preventDefault()
-                                console.log(this.state)
+                                console.log({
+                                    email: this.state.email,
+                                    password: this.state.password,
+                                })
                             }}
                         >
                             <input
@@ -227,13 +246,14 @@ class MyForm extends React.Component<any, MyState> {
                                         id="remember-me"
                                         name="remember-me"
                                         type="checkbox"
+                                        onClick={this.showPassword}
                                         className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
                                     />
                                     <label
                                         htmlFor="remember-me"
                                         className="ml-2 block text-sm text-gray-900"
                                     >
-                                        Remember me
+                                        Show password
                                     </label>
                                 </div>
 
