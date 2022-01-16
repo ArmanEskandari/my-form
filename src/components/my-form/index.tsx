@@ -1,8 +1,8 @@
 import React from 'react'
 import InputErrorRenderer from '../form-errors'
-import { LockClosedIcon } from '@heroicons/react/solid'
+import {LockClosedIcon} from '@heroicons/react/solid'
 import logo from '../../logo.svg'
-import { toEnglishDigit } from '../../utils/general-utils'
+import {toEnglishDigit} from '../../utils/general-utils'
 import './styles.css'
 
 type MyState = {
@@ -46,7 +46,7 @@ class MyForm extends React.Component<any, MyState> {
     handleUserInput = (e: { target: { name: any; value: any } }) => {
         const name = e.target.name
         const value = toEnglishDigit(e.target.value)
-        this.setState({ ...this.state, [name]: value }, () => {
+        this.setState({...this.state, [name]: value}, () => {
             this.validateField(name, value)
         })
     }
@@ -55,12 +55,13 @@ class MyForm extends React.Component<any, MyState> {
         let fieldValidationErrors = this.state.formErrors
         let emailValid = this.state.emailValid
         let passwordValid = this.state.passwordValid
+        const emailValidationKey = value.match(
+            /^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/
+        )
 
         switch (fieldName) {
             case 'email':
-                emailValid = value.match(
-                    /^[a-z0-9](\.?[a-z0-9]){5,}@g(oogle)?mail\.com$/
-                )
+                emailValid = emailValidationKey && emailValidationKey.length > 0
                 fieldValidationErrors.email = emailValid
                     ? ''
                     : ' enter a valid gmail address'
