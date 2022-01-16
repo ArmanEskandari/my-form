@@ -13,22 +13,22 @@
 
 .error-message {
     padding: 15px;
-    color: #FB2B76;
+    color: #fb2b76;
 }
 
 .fadeMe {
-    animation:fadeIn 1s linear;
+    animation: fadeIn 1s linear;
 }
 
 @keyframes fadeIn {
     0% {
-        opacity:0
+        opacity: 0;
     }
     100% {
-        opacity:1;
+        opacity: 1;
     }
 }
 
 .fadeMe.none {
-    display:none
+    display: none;
 }
