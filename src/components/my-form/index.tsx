@@ -3,7 +3,6 @@ import InputErrorRenderer from '../form-errors'
 import {LockClosedIcon} from '@heroicons/react/solid'
 import logo from '../../logo.svg'
 import {toEnglishDigit} from '../../utils/general-utils'
-import './styles.css'
 
 type MyState = {
     email: string
