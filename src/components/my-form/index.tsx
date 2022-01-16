@@ -14,6 +14,8 @@ type MyState = {
             hasLowercase: string
             hasUppercase: string
             hasSpecial: string
+            hasEnglishDigit: string
+            hasPersianOrArabic: string
         }
     }
     emailValid: boolean
@@ -34,6 +36,8 @@ class MyForm extends React.Component<any, MyState> {
                     hasLowercase: '',
                     hasUppercase: '',
                     hasSpecial: '',
+                    hasEnglishDigit: '',
+                    hasPersianOrArabic: '',
                 },
             },
             emailValid: false,
@@ -66,10 +70,10 @@ class MyForm extends React.Component<any, MyState> {
                     : ' enter a valid gmail address'
                 break
             case 'password':
-                let lengthIsValid = value.length >= 6
+                let lengthIsValid = value.length > 6
                 fieldValidationErrors.password.length = lengthIsValid
                     ? ''
-                    : 'enter at least 6 characters'
+                    : 'enter at least 7 characters'
 
                 let hasLower = value.match(/([a-z])/) && true
                 fieldValidationErrors.password.hasLowercase = hasLower
@@ -85,6 +89,17 @@ class MyForm extends React.Component<any, MyState> {
                 fieldValidationErrors.password.hasSpecial = hasSpecial
                     ? ''
                     : 'password must contain at least one of these characters: ! @ # $ %'
+
+                let hasEnglishNumber = value.match(/[0-9]/) && true
+                fieldValidationErrors.password.hasEnglishDigit =
+                    hasEnglishNumber
+                        ? ''
+                        : 'passwoord must containt at least one english digit'
+
+                let hasPersianOrArabicLetter =
+                    value.match(/[\u0621-\u064A\u0600-\u06FF]/) && true
+                fieldValidationErrors.password.hasPersianOrArabic =
+                    hasPersianOrArabicLetter ? 'only use english letters' : ''
 
                 passwordValid =
                     (lengthIsValid && hasLower && hasUpper && hasSpecial) ??
