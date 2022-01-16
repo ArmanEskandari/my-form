@@ -102,7 +102,12 @@ class MyForm extends React.Component<any, MyState> {
                     hasPersianOrArabicLetter ? 'only use english letters' : ''
 
                 passwordValid =
-                    (lengthIsValid && hasLower && hasUpper && hasSpecial) ??
+                    (lengthIsValid &&
+                        hasLower &&
+                        hasUpper &&
+                        hasSpecial &&
+                        hasEnglishNumber &&
+                        !hasPersianOrArabicLetter) ??
                     false
 
                 break
