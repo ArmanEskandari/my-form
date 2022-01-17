@@ -3,7 +3,7 @@ import InputErrorRenderer from 'components/form-errors'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import logo from 'logo.svg'
 import { toEnglishDigit } from 'utils/general-utils'
-import {MyState} from "components/my-form/myForm.types";
+import { MyState } from 'components/my-form/myForm.types'
 
 class MyForm extends React.Component<any, MyState> {
     constructor(props: any) {
