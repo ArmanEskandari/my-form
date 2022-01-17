@@ -146,7 +146,7 @@ class MyForm extends React.Component<any, MyState> {
                     <div>
                         <img
                             src={logo}
-                            className="App-logo mx-auto h-12 w-64 h-60"
+                            className="pointer-events-none animate-spin spin-slow mx-auto h-12 w-64 h-60"
                             alt="logo"
                         />
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">

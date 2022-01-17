@@ -1,6 +1,5 @@
 import React, { Suspense } from 'react'
 import MyForm from 'components/my-form'
-import './App.css'
 import MyErrorBoundary from 'components/common/MyErrorBoundary'
 
 function App() {
