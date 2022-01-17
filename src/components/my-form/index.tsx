@@ -135,7 +135,7 @@ class MyForm extends React.Component<any, MyState> {
     showPassword() {
         const x: HTMLInputElement = document.getElementById(
             'password'
-        ) as HTMLInputElement;
+        ) as HTMLInputElement
 
         if (x) {
             if (x.type === 'password') {
