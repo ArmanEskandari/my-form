@@ -8,9 +8,9 @@ const InputErrorRenderer = ({ formErrors }: any) => (
                 return (
                     <div
                         key={formErrors[fieldName]}
-                        className="error-container fadeMe"
+                        className="bg-pink-600/25 rounded-lg text-xs w-full h-7 text-left my-1 mx-auto flex items-center fadeMe"
                     >
-                        <p className="error-message" key={i}>
+                        <p className="p-2 text-pink-600" key={i}>
                             {formErrors[fieldName]}
                         </p>
                     </div>
