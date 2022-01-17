@@ -153,9 +153,9 @@ class MyForm extends React.Component<any, MyState> {
         })
     }
 
-    errorClass(error: string | any[]) {
-        return error?.length === 0 ? '' : 'has-error'
-    }
+    // errorClass(error: string | any[]) {
+    //     return error?.length === 0 ? '' : 'border-rose-500'
+    // }
 
     render() {
         return (
