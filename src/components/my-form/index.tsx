@@ -3,25 +3,7 @@ import InputErrorRenderer from '../form-errors'
 import { LockClosedIcon } from '@heroicons/react/solid'
 import logo from '../../logo.svg'
 import { toEnglishDigit } from '../../utils/general-utils'
-
-type MyState = {
-    email: string
-    password: string
-    formErrors: {
-        email: string
-        password: {
-            length: string
-            hasLowercase: string
-            hasUppercase: string
-            hasSpecial: string
-            hasEnglishDigit: string
-            hasPersianOrArabic: string
-        }
-    }
-    emailValid: boolean
-    passwordValid: boolean
-    formValid: boolean
-}
+import {MyState} from "./myForm.types";
 
 class MyForm extends React.Component<any, MyState> {
     constructor(props: any) {
