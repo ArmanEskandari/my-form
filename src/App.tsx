@@ -7,7 +7,7 @@ function App() {
     return (
         <MyErrorBoundary>
             <Suspense fallback={<div>Loading...</div>}>
-                <div className="App">
+                <div className="text-center">
                     <MyForm />
                 </div>
             </Suspense>
