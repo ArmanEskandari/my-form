@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import 'components/form-errors/styles.css'
 
 const InputErrorRenderer = ({ formErrors }: any) => (
     <div className="formErrors">
