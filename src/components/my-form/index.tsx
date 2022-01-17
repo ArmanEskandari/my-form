@@ -146,6 +146,13 @@ class MyForm extends React.Component<any, MyState> {
         }
     }
 
+    handleSubmitForm() {
+        return console.log({
+            email: this.state.email,
+            password: this.state.password,
+        })
+    }
+
     errorClass(error: string | any[]) {
         return error?.length === 0 ? '' : 'has-error'
     }
@@ -169,10 +176,10 @@ class MyForm extends React.Component<any, MyState> {
                             className="mt-8 space-y-6"
                             onSubmit={(e) => {
                                 e.preventDefault()
-                                console.log({
-                                    email: this.state.email,
-                                    password: this.state.password,
-                                })
+                                this.state.formValid &&
+                                    this.state.emailValid &&
+                                    this.state.passwordValid &&
+                                    this.handleSubmitForm()
                             }}
                         >
                             <input
