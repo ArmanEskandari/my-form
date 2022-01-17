@@ -95,7 +95,7 @@ class MyForm extends React.Component<any, MyState> {
                 fieldValidationErrors.password.hasEnglishDigit =
                     hasEnglishNumber
                         ? ''
-                        : 'passwoord must containt at least one english digit'
+                        : 'password must contain at least one english digit'
 
                 let hasPersianOrArabicLetter =
                     value.match(/[\u0621-\u064A\u0600-\u06FF]/) && true
